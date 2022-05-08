@@ -100,10 +100,6 @@
   text-align: center;
 }
 
-.ranking-container h1{
-  text-align: center;
-}
-
 .ranking-cards{
   border: 1px solid lightgray;
   display: flex;
@@ -114,6 +110,32 @@
 .ranking-cards img{
   height: 25px;
   width: 25px;
+}
+
+.nft-container{
+  border: 1px solid red;
+  height:100vh;
+  display:flex;
+  flex-direction: column;
+
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  /* border:3px solid green; */
+}
+
+.nft-container h1{
+  text-align: center;
+}
+
+.nft-container img{
+  height: 100px;
+  width: 100px;
+}
+
+.nft-card{
+  display: flex;
+  border: 1px solid black;
 }
 
 .footer-container p {

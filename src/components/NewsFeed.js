@@ -19,7 +19,6 @@ export default function NewsFeed() {
             
             axios.request(options).then(function (response) {
                 setNewsData(response.data);
-                // console.log(newsData)
                 setLoading(false)
             }).catch(function (error) {
                 console.error(error);

@@ -19,8 +19,6 @@ export default function CryptoRanking() {
             
             axios.request(options).then(function (response) {
                 setRankingList(response.data);
-                console.log(rankingList)
-                // console.log(response.data[0].ath)
                 setLoading(false)
             }).catch(function (error) {
                 console.error(error);

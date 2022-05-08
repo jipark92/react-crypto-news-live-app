@@ -13,6 +13,9 @@ export default function Header() {
                     <Link to="/ranking" className='text-light'>RANK</Link>
                 <NavDropdown title="TOOLS" id="collasible-nav-dropdown">
                     <Link to="/converter" className='text-dark'>Crypto Rate Converter</Link>
+                    <br></br>
+                    <Link to="/nft" className='text-dark'>NFT Items</Link>
+
                 </NavDropdown>
                 </Nav>
                 <Nav>
