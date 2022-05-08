@@ -12,11 +12,7 @@ export default function Header() {
                 <Link to="/" className='text-light'>News Feed</Link>
                 <Link to="/converter" className='text-light'>Crypto Rate Converter</Link>
                 <NavDropdown title="---" id="collasible-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.1">---</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">---</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">---</NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                    <Link to="/ranking">Crypto Ranking List</Link>
                 </NavDropdown>
                 </Nav>
                 <Nav>
