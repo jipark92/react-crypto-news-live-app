@@ -1,5 +1,6 @@
 import { Navbar,Container,Nav,NavDropdown } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {Link} from 'react-router-dom'
 
 
 export default function Header() {
@@ -9,9 +10,9 @@ export default function Header() {
             <Navbar.Brand href="#home">Crypto News Live</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
-                <Nav className="me-auto">
-                <Nav.Link href="#features">---</Nav.Link>
-                <Nav.Link href="#pricing">---</Nav.Link>
+                <Nav className="nav-links me-auto">
+                <Link to="/" className='text-light'>News Feed</Link>
+                <Link to="/converter" className='text-light'>Crypto Rate Converter</Link>
                 <NavDropdown title="---" id="collasible-nav-dropdown">
                     <NavDropdown.Item href="#action/3.1">---</NavDropdown.Item>
                     <NavDropdown.Item href="#action/3.2">---</NavDropdown.Item>

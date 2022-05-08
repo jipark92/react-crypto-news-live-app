@@ -10,7 +10,7 @@ export default function RouteSwitch() {
             <Header/>
             <Routes>
                 <Route path='/' element={<NewsFeed/>}/>
-                <Route path='/conversion' element={<CurrencyConvevrsion/>}/>
+                <Route path='/converter' element={<CurrencyConvevrsion/>}/>
             </Routes>
             <Footer/>
         </BrowserRouter>
