@@ -1,9 +1,11 @@
 import axios from "axios"
 import {useState, useEffect} from 'react'
+import { Spinner} from 'react-bootstrap';
 
 export default function CryptoRanking() {
 
     const [rankingList, setRankingList] = useState([])
+    const [loading, setLoading] = useState(true)
 
     useEffect(()=>{
         const options = {
@@ -19,12 +21,12 @@ export default function CryptoRanking() {
                 setRankingList(response.data);
                 console.log(rankingList)
                 // console.log(response.data[0].ath)
+                setLoading(false)
             }).catch(function (error) {
                 console.error(error);
             });
     },[])
     
-
     const showRankingList = rankingList.map((list)=>{
         return(
             <div className="ranking-cards" key={list.cmcRank}>
@@ -41,7 +43,13 @@ export default function CryptoRanking() {
     return (
         <div className="ranking-container">
             <h1>Cryptocurrency Rank</h1>
-            {showRankingList}
+            {loading?
+            <Spinner 
+                animation="border" 
+                role="status">
+                <span className="visually-hidden">Loading...</span>
+            </Spinner>
+            :showRankingList}
         </div>
     )
 }

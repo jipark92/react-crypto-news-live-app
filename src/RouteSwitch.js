@@ -13,7 +13,6 @@ export default function RouteSwitch() {
                 <Route path='/' element={<NewsFeed/>}/>
                 <Route path='/converter' element={<CurrencyConvevrsion/>}/>
                 <Route path='/ranking' element={<CryptoRanking/>}/>
-
             </Routes>
             <Footer/>
         </BrowserRouter>

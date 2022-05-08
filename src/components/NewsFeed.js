@@ -45,7 +45,6 @@ export default function NewsFeed() {
         )
     })
     
-
     return (
         <div className="news-feed-container bg-secondary">
             <div className='news-title-container'>
