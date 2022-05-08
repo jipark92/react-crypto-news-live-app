@@ -17,8 +17,6 @@ export default function CurrencyConvevrsion() {
 
     const convert = () => {
         //rapid api alpha vantage
-        console.log('clicked')
-
         const options = {
             method: 'GET',
             url: 'https://alpha-vantage.p.rapidapi.com/query',
@@ -70,10 +68,6 @@ export default function CurrencyConvevrsion() {
                 <div className='converted-rate'>
                     <h3><b>{firstAmount} {firstCurrency} = {convertedAmount} {secondCurrency}</b></h3>
                 </div>
-
-                {/* <div className='converted-result-container'>
-                    <button onClick={convert}>CONVERT</button>
-                </div> */}
 
                 <div className='exchange-rate-container'>
                     <h5>Exchange Rate</h5>
