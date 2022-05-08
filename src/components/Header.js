@@ -2,7 +2,6 @@ import { Navbar,Container,Nav,NavDropdown } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Link} from 'react-router-dom'
 
-
 export default function Header() {
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">

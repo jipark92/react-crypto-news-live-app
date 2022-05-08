@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import axios from 'axios'
 
 export default function CurrencyConvevrsion() {
@@ -8,8 +8,13 @@ export default function CurrencyConvevrsion() {
     const [secondCurrency, setSecondCurrency] = useState("USD")
     const [firstAmount, setFirstAmount] = useState(1)
     const [convertedAmount, setConvertedAmount] = useState(0)
+    const [exchangeRate, setExchangeRate] = useState([])
+    const [firstCurrencyName , setFirstCurrencyName] = useState("")
     
-    
+    useEffect(()=>{
+        convert()
+    },[firstAmount])
+
     const convert = () => {
         //rapid api alpha vantage
         console.log('clicked')
@@ -26,17 +31,19 @@ export default function CurrencyConvevrsion() {
             
             axios.request(options).then(function (response) {
                 setConvertedAmount(response.data["Realtime Currency Exchange Rate"]["5. Exchange Rate"] * firstAmount);
+                setExchangeRate(response.data["Realtime Currency Exchange Rate"]["5. Exchange Rate"])
+                setFirstCurrencyName(response.data["Realtime Currency Exchange Rate"]["2. From_Currency Name"])
             }).catch(function (error) {
                 console.error(error);
             });
         }
 
     return (
-        <div className="currency-conversion-container">
-            <h3>Crypto Currency Converter</h3>
-            <div className='conversion-calculator'>
+        <div className="currency-conversion-container bg-secondary">
+            <h2>Crypto Currency Converter</h2>
+            <div className='conversion-calculator bg-dark text-light'>
                 <div className='option-1'>
-                Cryptocurrency 1:  
+                AMOUNT:  
                     <input 
                         type="number"
                         name="currency-amount-1"
@@ -47,20 +54,10 @@ export default function CurrencyConvevrsion() {
                         name="currency-1-option"
                         value={firstCurrency}
                         onChange={(e)=>setFirstCurrency(e.target.value)}
-
                     >
                         {cryptoCurrencies.map((crypto,index)=><option key={index}>{crypto}</option>)}
                     </select>
-                </div>
-
-                <div className='option-2'>
-                Cryptocurrency 2:
-                    <input 
-                        type="number"
-                        name="currency-amount-2"
-                        value={convertedAmount}
-                        onChange={e=>setConvertedAmount(e.target.value)}
-                    />
+                    <h5>&#8649;</h5>
                     <select
                         name="currency-2-option"
                         value={secondCurrency}
@@ -70,13 +67,17 @@ export default function CurrencyConvevrsion() {
                     </select>
                 </div>
 
-                <div className='rate'>
-                    BTC = 
-                    USD = 
+                <div className='converted-rate'>
+                    <h3><b>{firstAmount} {firstCurrency} = {convertedAmount} {secondCurrency}</b></h3>
                 </div>
 
-                <div className='converted-result-container'>
+                {/* <div className='converted-result-container'>
                     <button onClick={convert}>CONVERT</button>
+                </div> */}
+
+                <div className='exchange-rate-container'>
+                    <h5>Exchange Rate</h5>
+                    <p>1 {firstCurrencyName}({firstCurrency}) = ${exchangeRate}</p>
                 </div>
 
             </div>
